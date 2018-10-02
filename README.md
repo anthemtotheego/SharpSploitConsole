@@ -18,11 +18,12 @@ Contact me at:
 **Before submitting issues, this is just a POC and will likely not be updated actively. I encourage you to borrow, add, mod, and/or make your own.  Remember, all the awesome code out there (and there is a lot) can be taken/modified to create your own custom tools.**
 
 ![Alt text](/sharpsploitimg1.PNG?raw=true "SharpSploitConsole")
+![Alt text](/sharpsploitimg2.PNG?raw=true "")
 
 Installation - Quick and Dirty
 ==============================
 
-**I used Windows 10, Visual Studio 2017, compiled everything for x64 architecture - your mileage may vary**
+**I used Windows 10, Visual Studio 2017, compiled everything for x64 architecture (found in precompiled binaries folder) - mileage may vary**
 
 1. Download SharpSploit tool from https://github.com/cobbr/SharpSploit.git
 
