@@ -17,6 +17,8 @@ Contact me at:
 
 **Before submitting issues, this is just a POC and will likely not be updated actively. I encourage you to borrow, add, mod, and/or make your own.  Remember, all the awesome code out there (and there is a lot) can be taken/modified to create your own custom tools.**
 
+![Alt text](/SharpSploitConsole/sharpsploitimg1.PNG?raw=true "SharpSploitConsole")
+
 Installation - Quick and Dirty
 ==============================
 
