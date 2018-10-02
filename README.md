@@ -127,7 +127,7 @@ Retrieve list of running processes:
 
 Creates a minidump of the memory of a running process, requires PID | output location | output name - requires admin:
 
-```ProcDump 2198 C:\Users\JoeBlow\Desktop memorydump.dmp```
+```ProcDump 2198 C:\Users\Username\Desktop memorydump.dmp```
 
 Retrieve registry path value, requires full path argument:
 
