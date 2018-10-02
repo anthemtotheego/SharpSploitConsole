@@ -23,7 +23,7 @@ Contact me at:
 Setup - Quick and Dirty
 ==============================
 
-**Note: For those of you who don't want to go through the trouble of compiling your own I uploaded a x64 binary found in the precompiled binaries folder and will get around to adding an x86.  For those of you who do want to compile your own... I used Windows 10, Visual Studio 2017 - mileage may vary**
+**Note: For those of you who don't want to go through the trouble of compiling your own I uploaded an x64 binary found in the precompiled binaries folder and will get around to adding an x86.  For those of you who do want to compile your own... I used Windows 10, Visual Studio 2017 - mileage may vary**
 
 1. Download SharpSploit tool from https://github.com/cobbr/SharpSploit.git
 
