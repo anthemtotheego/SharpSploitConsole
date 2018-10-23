@@ -187,6 +187,8 @@ Get Domain Groups, Grabs specified (or all) group objects in the target domain, 
 
 ```GetDomainGroups```
 
+```GetDomainGroups -target "Domain Admins"
+
 Get Domain Computers, Grabs specified (or all) computer objects in the target domain, by default will use current user context. optional arguments: -username -password -domain -server -searchbase -searchstring -target:
 
 ```GetDomainComputers```
@@ -213,7 +215,7 @@ Run shell command:
 
 Run powershell command while attempting to bypass AMSI, scriptBlock logging, and Module logging:
 
-```Powershell powershell -noP -sta -w 1 -enc <Base64>```
+```Powershell -noP -sta -w 1 -enc <Base64>```
 
 # Currently available options (more to come)                           
     
