@@ -6,7 +6,7 @@ SharpSploit is a tool written by @cobbr_io that combines many techniques/C# code
 
 Description
 ============
-SharpSploit Console is just a quick proof of concept binary to help penetration testers or red teams with less C# experience play with some of the awesomeness that is SharpSploit.  By following the instructions below you should be able to embed both the SharpSploit.dll and System.Management.Automation.dll into the SharpSploitConsole binary, creating a standalone exe you can drop on an appropriate target sytem.  
+SharpSploit Console is just a quick proof of concept binary to help penetration testers or red teams with less C# experience play with some of the awesomeness that is SharpSploit.  By following the instructions below you should be able to embed both the SharpSploit.dll and System.Management.Automation.dll into the SharpSploitConsole binary, creating a standalone exe you can drop on an appropriate target sytem and run over a non-interactive shell (such as beacon).  
 
 This concept can be applied to many C# binaries.  For example, we could embed the System.Management.Automation.dll into our favorite C# NoPowershell.exe, creating a binary that doesn't rely on the System.Management.Automation.dll on the target system.
 
@@ -59,7 +59,9 @@ Examples
 
 Note:  All commands are case insensitive
 
-Start interactive console mode, otherwise program runs commands given and exits (great for remote shells):
+By default all commands can be taken in as command line args, they will be executed and the program will exit (great for remote shells).  This looks something like the following: sharpSploitConsole.exe getSystem logonPasswords.  Alternatively, if you want to use the interactive console mode, you can use the interact command to get a pseudo-interactive shell.
+
+Start interactive console mode:
 
 ```Interact```
 
