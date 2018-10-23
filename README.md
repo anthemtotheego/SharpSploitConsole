@@ -187,7 +187,7 @@ Get Domain Groups, Grabs specified (or all) group objects in the target domain, 
 
 ```GetDomainGroups```
 
-```GetDomainGroups -target "Domain Admins"
+```GetDomainGroups -target "Domain Admins"```
 
 Get Domain Computers, Grabs specified (or all) computer objects in the target domain, by default will use current user context. optional arguments: -username -password -domain -server -searchbase -searchstring -target:
 
