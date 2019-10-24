@@ -405,12 +405,12 @@ namespace SharpSploitConsole
         }
         private static void readReg(String[] request)
         {
-            var a = SharpSploit.Enumeration.Host.RegistryRead(request[1]);
+            var a = SharpSploit.Enumeration.Registry.GetRegistryKey(request[1]);
             Console.WriteLine(a);
         }
         private static void writeReg(String[] request)
         {
-            var a = SharpSploit.Enumeration.Host.RegistryWrite(request[1], request[2]);
+            var a = SharpSploit.Enumeration.Registry.SetRegistryKey(request[1], request[2]);
             Console.WriteLine(a);
         }
         private static void netLocalGroupMembers(String[] request)
