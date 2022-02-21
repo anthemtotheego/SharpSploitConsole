@@ -59,7 +59,7 @@ namespace SharpSploitConsole
                 //exit
                 if (request[0].ToLower() == "exit")
                 {
-                    Environment.Exit(0);
+                    return;
                 }
                 //help
                 else if (request[0].ToLower() == "help" || request[0] == "?")
